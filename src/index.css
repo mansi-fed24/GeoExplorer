@@ -3,3 +3,145 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Home Page Hero Title */
+.hero-title {
+  font-size: 3.8rem; /* slightly bigger */
+  font-weight: 900;  /* extra bold */
+  text-transform: uppercase; /* all caps */
+  letter-spacing: 2px; /* more spacing */
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899); /* blue-purple-pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Home Page Subtitle */
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text);
+  opacity: 0.85;
+  margin: 0 0 2rem 0;
+  line-height: 1.7;
+}
+/* Custom GeoExplorer Stats */
+.hero-stats {
+  display: flex;
+  justify-content: flex-start; /* instead of centered, align left */
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* mobile friendly */
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1));
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.9;
+  font-weight: 600;
+}
+/* Rotating Globe Visual */
+.globe-container {
+  font-size: 6rem;              /* Big globe */
+  animation: spin 8s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6));
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
+
+/* Layout shell */
+.start-page {
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+/* Two-column hero */
+.hero {
+  width: min(1100px, 100%);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-left { flex: 1; }
+.hero-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Heading + brand */
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  color: #0f172a; /* slate-900 */
+}
+
+.brand {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: #334155; /* slate-600 */
+  margin: 0 0 0.5rem 0;
+}
+
+/* Visual placeholder (we’ll animate later) */
+.globe-placeholder {
+  font-size: clamp(3rem, 10vw, 7rem);
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.35));
+  line-height: 1;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-right { order: -1; } /* globe above text on small screens */
+}
