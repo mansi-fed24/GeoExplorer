@@ -1,26 +1,53 @@
 import React from "react";
 
+
+
 const Start = () => {
   return (
-    <main className="start-page">
-      <section className="hero">
-        {/* Left: text */}
-        <div className="hero-left">
+    <div className="home-container">
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-content">
           <h1 className="hero-title">
-            🌍 Welcome to <span className="brand">GeoExplorer</span>
+            🌍 Welcome to <span className="gradient-text px-12 m-12">GeoExplorer</span>
           </h1>
+
           <p className="hero-subtitle">
-            Explore countries, learn about their cultures, and challenge yourself with fun quizzes.
+           From flags and capitals to regions and languages, GeoExplorer turns geography into simple, visual lessons. Build a personal collection, challenge yourself with quizzes, and see how you rank.
           </p>
+
+          <div className="hero-stats">
+            <div className="stat-item">
+              <div className="stat-number">195+</div>
+              <div className="stat-label">Countries</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">5</div>
+              <div className="stat-label">Regions</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">∞</div>
+              <div className="stat-label">Knowledge</div>
+            </div>
+          </div>
         </div>
 
-        {/* Right: visual placeholder (we’ll enhance later) */}
-        <div className="hero-right">
-          <div className="globe-placeholder">🌍</div>
+        {/* Right visual: floating flags */}
+        <div className="hero-visual">
+          <div className="floating-flags">
+            <div className="flag-emoji">🏳️</div>
+            <div className="flag-emoji">🇺🇸</div>
+            <div className="flag-emoji">🇫🇷</div>
+            <div className="flag-emoji">🇯🇵</div>
+            <div className="flag-emoji">🇧🇷</div>
+            <div className="flag-emoji">🇦🇺</div>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 
 export default Start;
+
+
