@@ -19,8 +19,19 @@ export const AppProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
+  const [savedCountries, setSavedCountries] = useState(
+    JSON.parse(localStorage.getItem("savedCountries")|| "[]")
+  );
+  // Sync savedCountries with localStorage
+  useEffect(() => {
+    localStorage.setItem('savedCountries', JSON.stringify(savedCountries))
+  
+   
+  }, [savedCountries]);
+  
+
   return (
-   <AppContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+   <AppContext.Provider value={{ isDarkMode, setIsDarkMode, savedCountries, setSavedCountries }}>
       {children}
     </AppContext.Provider>
   );
