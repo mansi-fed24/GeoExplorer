@@ -11,14 +11,14 @@
   }
 }
 
-/* ---- Title like your tutor ---- */
+
 :root {
-  --text: #1f2937;   /* slate-800 for light mode */
-  --accent: #ef4444; /* red-500 */
+  --text: #1f2937;   /*  for light mode */
+  --accent: #ef4444; 
 }
 .dark {
-  --text: #f3f4f6;   /* gray-100 for dark mode */
-  --accent: #f87171; /* red-400 */
+  --text: #f3f4f6;   /* for dark mode */
+  --accent: #f87171; 
 }
 
 .page-title {
@@ -64,7 +64,7 @@
   font-weight: 800;
   margin: 0 0 1.5rem 0;
   line-height: 1.1;
-  color: #0f172a; /* slate-900 */
+  color: #0f172a; 
 }
 
 .gradient-text {
@@ -76,7 +76,7 @@
 
 .hero-subtitle {
   font-size: 1.3rem;
-  color: #475569; /* slate-600 */
+  color: #475569; 
   opacity: 0.8;
   margin: 0 0 3rem 0;
   line-height: 1.6;
@@ -104,7 +104,7 @@
 
 .stat-label {
   font-size: 0.95rem;
-  color: #64748b; /* slate-500 */
+  color: #64748b; 
   font-weight: 600;
 }
 
@@ -148,5 +148,84 @@
   .hero-visual { order: -1; }
   .hero-title { font-size: 2.6rem; }
   .hero-stats { justify-content: center; gap: 1rem; }
+}
+
+/* CountryDetails page */
+
+.country-details-page {
+  min-height: 100vh;
+  padding: 24px;
+  background: white;
+}
+
+.dark .country-details-page {
+  background: #0f0f10;
+  color: #e5e7eb;
+}
+
+.country-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.dark .country-card {
+  background: #111213;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+.cdp-title {
+  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.cdp-flag {
+  width: 100%;
+  max-width: 560px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+.dark .cdp-flag { border-color: #374151; }
+
+.cdp-info p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.cdp-link {
+  color: #2563eb; 
+  text-decoration: underline;
+}
+.dark .cdp-link { color: #60a5fa; }
+
+.cdp-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.cdp-button {
+  padding: 10px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cdp-button:hover { background: #1d4ed8; }
+
+.cdp-button:disabled {
+  background: #9ca3af; /* gray kind of disabled look */
+  cursor: not-allowed;
 }
 

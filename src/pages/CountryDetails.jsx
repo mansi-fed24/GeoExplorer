@@ -46,24 +46,25 @@ const CountryDetails = () => {
     if (!exists) {
       setSavedCountries([...savedCountries, country]);
     }
+
+    
   };
+  const alreadySaved = country && savedCountries.some(c => c.cca3 === country.cca3);
 
 
   return (
-    <main className='min-h-screen p-6'>
+    <main className="country-details-page">
       {loading ? (<p>Loading…</p>)
       : error ? (<p className="text-red-500">{error}</p>)
       : country ? (
         <div className='max-w-lg mx-auto'>
-          <div className='bg-white dark:bg-gray-900 rounded-2xl shadow p-6'>
-            <h1 className="text-3xl font-bold mb-4 text-center">{country.name.common}</h1>
-            <img
+          <div className="country-card">
+            <h1 className="cdp-title">{country.name.common}</h1>
+            <img className="cdp-flag"
               src={country.flags?.svg}
               alt={`Flag of ${country.name.common}`}
-              className="w-full max-w-sm h-48 object-cover border border-gray-200 dark:border-gray-700 rounded-xl mb-6 mx-auto"
-              loading="lazy"
-            />
-            <div className="space-y-2 ml-10 text-lg">
+              loading ="lazy" />
+            <div className="cdp-info">
 
               <p><strong>Capital:</strong> {country.capital?.[0] || "N/A"}</p>
               <p><strong>Region:</strong> {country.region} {country.subregion && `- ${country.subregion}`}</p>
@@ -80,16 +81,17 @@ const CountryDetails = () => {
                 href={country.maps?.googleMaps}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 underline inline-block mt-2"
+                className="cdp-link"
               >
                 View on Google Maps
               </a>
-              <div className="flex justify-end">
-                <button
+              <div className="cdp-actions">
+                <button 
+                  className="cdp-button" 
                   onClick={handleSave}
-                  className=" px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  disabled={alreadySaved}
                 >
-                  Save to Collection
+                  {alreadySaved ? "Saved" : "Save to Collection"}
                 </button>
               </div>
 
@@ -100,7 +102,11 @@ const CountryDetails = () => {
 
 
     </main>
-  );
-};
+    );
+  };
 
-export default CountryDetails
+  export default CountryDetails     
+                  
+                    
+              
+              
