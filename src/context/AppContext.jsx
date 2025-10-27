@@ -1,5 +1,6 @@
 import React from 'react'
 import { createContext, useContext, useEffect, useState } from 'react';
+import Leaderboard from '../pages/Leaderboard';
 
 export const AppContext = createContext();
 
@@ -28,10 +29,26 @@ export const AppProvider = ({ children }) => {
   
    
   }, [savedCountries]);
-  
+  const [quizUser, setQuizUser] = useState("");
+  const [quizRegion, setQuizRegion] = useState("Europe");
+  const [quizScore, setQuizScore] = useState(null);
+
+  const [leaderboard, setLeaderboard] = useState(JSON.parse(localStorage.getItem("leaderboard") || "[]"));
+
+  useEffect(() => {
+    localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+  }, [leaderboard]);
 
   return (
-   <AppContext.Provider value={{ isDarkMode, setIsDarkMode, savedCountries, setSavedCountries }}>
+   <AppContext.Provider 
+    value={{ 
+      isDarkMode, setIsDarkMode, 
+      savedCountries, setSavedCountries,
+      quizUser, setQuizUser,
+      quizRegion, setQuizRegion,
+      quizScore, setQuizScore,
+      leaderboard, setLeaderboard
+    }}>
       {children}
     </AppContext.Provider>
   );

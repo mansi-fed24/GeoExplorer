@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
+import { Link } from "react-router-dom";
+
 
 const CountryDetails = () => {
   const {countryName} = useParams();
@@ -54,6 +56,10 @@ const CountryDetails = () => {
 
   return (
     <main className="country-details-page">
+      <Link 
+        to="/countries" 
+        className=" text-blue-500 underline hover:text-blue-700">Back to Countries</Link>
+       
       {loading ? (<p>Loading…</p>)
       : error ? (<p className="text-red-500">{error}</p>)
       : country ? (
